@@ -9,5 +9,5 @@ jobs:
     echo-strings:
         runs-on: ubuntu-latest
         steps:
-          - run: echo "I was triggered by a workflow run named Reposity Events "
+          - run: echo "I was triggered by a workflow run named Reposity Events! "
 
