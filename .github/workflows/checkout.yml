@@ -11,7 +11,6 @@ jobs:
           run: ls -a
         - name: Checkout
           run: |
-           git init --if-not-exists
            git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github
            .com/$GITHUB_REPOSITORY.git"
               git fetch origin 
