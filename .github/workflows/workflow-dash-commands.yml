@@ -1,0 +1,11 @@
+name: Worklflow commands
+
+on: [push]
+
+
+jobs: 
+    testing-wf-commands:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Setting an error message
+              run: echo "::error::Missing semicolumn
