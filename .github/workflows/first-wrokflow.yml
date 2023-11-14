@@ -1,0 +1,18 @@
+name: First workflow
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+    run-shell-commands:
+        runs-on: ubuntu-latest
+        steps: 
+           - name: Echo a string 
+             run: echo "hello fucking world!! 7u7"
+           - name: Multiline Command
+             run: |
+               node -v
+               npm -v
