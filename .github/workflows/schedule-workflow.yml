@@ -1,0 +1,14 @@
+name: Schedule WorkFlow
+on:
+    schedule:
+        - cron: "0 14 * * *"
+        - cron: "0/5 * * * *" # just for testing
+
+
+jobs: 
+    stale:
+    runs-on: ubuntu-latest
+    steps:
+        uses: actions/stale@v8
+        days-before-stale: 1
+        days-before-close: 5
