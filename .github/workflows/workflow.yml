@@ -1,0 +1,13 @@
+name: Workflow run dependece
+
+on: 
+    workflow_run:
+        workflows: [Reposity Events ]
+        types: [completed]
+
+jobs: 
+    echo-strings:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo "I was triggered by a workflow run named Reposity Events "
+
