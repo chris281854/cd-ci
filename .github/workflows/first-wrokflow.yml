@@ -25,9 +25,8 @@ jobs:
             run: sw_vers
 
     dependant-job:
-        runs-on: windows-lates
+        runs-on: windows-latest
         needs: build
         steps:
            - name: echo a string 
              run: Whrite-Output "Windows String"
-             
