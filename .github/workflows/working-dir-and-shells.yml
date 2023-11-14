@@ -22,23 +22,23 @@ jobs:
              
     
     Display-wd-info-windows:
-                runs-on: windows-latest
-                defaults:
-                    run:
-                      shell: pwsh
-                steps:
-                    - name: Display Working Directory
-                      run:  |
-                       Get-Location
-                       dir
-                       echo $env:GITHUB_SHA
-                       echo $env:GITHUB_REPOSITORY
-                       echo $env:GITHUB_WORKSPACE
-                    -  name: Python shell
-                    shell: Python
-                    run:  |
-                       import platform
-                       print(platform.processor())
+        runs-on: windows-latest
+        defaults:
+          run:
+             shell: pwsh
+        steps:
+          - name: Display Working Directory
+            run:  |
+               Get-Location
+                dir
+                echo $env:GITHUB_SHA
+                echo $env:GITHUB_REPOSITORY
+                echo $env:GITHUB_WORKSPACE
+          -  name: Python shell
+             shell: Python
+             run:  |
+                import platform
+                print(platform.processor())
         
             
     
