@@ -2,12 +2,12 @@ name: First workflow
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-    run-shell-commands:
+    build:
         runs-on: ubuntu-latest
         steps: 
           - name: Checkout
