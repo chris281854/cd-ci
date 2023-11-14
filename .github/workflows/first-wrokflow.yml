@@ -10,6 +10,8 @@ jobs:
     run-shell-commands:
         runs-on: ubuntu-latest
         steps: 
+          - name: Checkout
+            uses: actions/checkout@v2
           - name: Echo a string 
             run: echo "hello fucking world!! 7u7"
           - name: Multiline Command
