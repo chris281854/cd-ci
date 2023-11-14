@@ -9,3 +9,11 @@ jobs:
         steps:
             - name: Setting an error message
               run: echo "::error::Missing semicolumn"
+            - name: Setting an debug message with paramethers
+              run: echo "::debug file=app.js,line=10,col=15 endLIne=3,endColumn=7::Missing semicolumn"
+            - name: Setting an error message with paramethers
+              run: echo "::error file=app.js,line=10,col=15 endLIne=3,endColumn=7::Missing semicolumn"
+            - name: Setting an warning message with paramethers
+              run: echo "::warning file=app.js,line=10,col=15 endLIne=3,endColumn=7::Missing semicolumn"
+            - name: Setting an notice message with paramethers
+              run: echo "::notice file=app.js,line=10,col=15 endLIne=3,endColumn=7::Missing semicolumn"
