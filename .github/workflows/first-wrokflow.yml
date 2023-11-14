@@ -18,3 +18,16 @@ jobs:
             run: |
                node -v
                npm -v
+    parallel-job-macos:
+        runs-on: macos-latest
+        steps:
+          - name: View SW version   
+            run: sw_vers
+
+    dependant-job:
+        runs-on: windows-lates
+        needs: build
+        steps:
+           - name: echo a string 
+             run: Whrite-Output "Windows String"
+             
