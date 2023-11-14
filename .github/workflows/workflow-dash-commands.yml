@@ -24,7 +24,7 @@ jobs:
 
                 echo "::endgroup::"
             - name: Masking a value 
-              run: ":: echo add-mask::my-secret-value"
+              run: echo "::add-mask::my-secret-value"
             - name: Echo a secret
               run: echo "my-secret-value"
 
