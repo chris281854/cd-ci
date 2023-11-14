@@ -1,10 +1,10 @@
 name: Checkout
 
-on:[push]
+on: [push]
 
 jobs:
-    checkout-and-display-file
-    runs: ubuntu-latest
+  checkout-and-display-file:
+    runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
         - name: Display file
