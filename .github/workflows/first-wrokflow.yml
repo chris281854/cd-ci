@@ -28,5 +28,5 @@ jobs:
         runs-on: windows-latest
         needs: build
         steps:
-           - name: echo a string 
-             run: Whrite-Output "Windows String"
+          - name: echo a string 
+            run: Write-Output "Windows String"
