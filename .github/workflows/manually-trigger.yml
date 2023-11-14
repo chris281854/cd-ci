@@ -2,6 +2,12 @@ name: Manually triggered
 
 on: 
     workflow_dispatch:
+        inputs:
+            string:
+                description: a string input to echo 
+                type: string
+                required: true
+                default: "Default value"
         
 
 jobs: 
