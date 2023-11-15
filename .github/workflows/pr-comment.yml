@@ -10,7 +10,7 @@ jobs:
     pr-comment:
         runs-on: ubuntu-latest
         permissions:
-            contents: read
+  
             issues: write
         steps:
           - name: Comment on New Prs
