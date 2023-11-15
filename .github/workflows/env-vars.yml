@@ -21,7 +21,7 @@ jobs:
                echo "JOB_LEVEL_ENV=$RANDOM" >> "$GITHUB_ENV"
             - name: Multiline Env VAr
               run: |
-                DELIMITER=';'
+                DELIMITER=1234
                 echo "RANDOM_JOKE << $DELIMITER" >> "$GITHUB_ENV"
             
                 echo "yOU ARE AN IDIOT  ja ja ja ja ja ja ja " >> "$GITHUB_ENV"
