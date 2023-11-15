@@ -19,7 +19,7 @@ jobs:
               env:
                 STEP_LEVEL_ENV: Available to this step
                 WF_LEVEL_ENV: oVERRIDEN IN STEP
-               run: |
+              run: |
                     echo '${{env.STEP_LEVEL_ENV}}'
                     echo $JOB_LEVEL_ENV
                     echo $WF_LEVEL_ENV
