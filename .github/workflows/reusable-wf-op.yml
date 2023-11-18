@@ -9,6 +9,13 @@ on:
                 value: ${{ jobs.generate-ouputs.outputs.date }}
 
 jobs: 
+    nested-wf:
+        uses: chris281854/pruebacdci/.github/workflows/reusablewf.yml@main
+
+        with:
+            name: ${{ github.event.inputs.name }}
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
     generate-ouputs:
         runs-on: ubuntu-latest
         #mapping outputs of th wf with the outputs of the job

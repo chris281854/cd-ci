@@ -20,6 +20,8 @@ jobs:
 
     calling-a-reusable-wf-local:
         uses: ./.github/workflows/reusable-wf-op.yml
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
 
     using-reusable-wf-output:
         runs-on: ubuntu-latest
