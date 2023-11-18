@@ -26,6 +26,8 @@ jobs:
           cat /etc/os-release
       - name: Log Env
         run: echo $API_URL
+      - name: Create file
+        run: echo 'Some tect' > text.txt
 
       - name: Container in a Step
         uses: docker://node:18.16-alpine3.17
@@ -33,8 +35,14 @@ jobs:
           entrypont: /usr/local/bin/node
           args: -p 10+5
 
-      - name: Container in a Step
+      - name: Container in log
         uses: docker://node:18.16-alpine3.17
         with:
           entrypont: /usr/local/bin/node
           args: -v
+
+      - name: Show file contents
+        uses: docker://node:18.16-alpine3.17
+        with:
+            entrypont: cat 
+            args: text.txt
