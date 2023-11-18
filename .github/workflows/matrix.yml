@@ -4,12 +4,20 @@ on: [push]
 
 jobs: 
     node-matrix:
+        # if one job fails the other will continue normally
+        # it makes the work flow continues even though one fails and if that happends the others jobs will be cancelled
+        continue-on-error: true
          
         strategy:
             matrix:
                 node-version: [12, 14,16,17]
                 os: [ubuntu-latest, windows-latest, macos-latest]
-
+            # by default if one job of the matrix fail the other that are pending will fail, to modify that we use this that if one job fails, the others will continue normally t
+            # the default value is true
+            #also fail-fast will prevent that if one job fail the others jobs of beeing cancelled
+            fail-fast: false
+            # it limits the number of parallel jobs
+            max-parallel: 3
         runs-on: ${{ matrix.os }}
         steps:
             - run: node -v
