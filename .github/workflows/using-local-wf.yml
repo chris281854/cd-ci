@@ -1,4 +1,4 @@
-name: Calling REusable Workflows
+name: Calling Reusable Workflows local
 
 on:
     workflow_dispatch:
@@ -10,7 +10,7 @@ on:
                 type: string
 
 jobs:
-    calling-a-reusable-wf:
+    calling-a-reusable-wf-local:
         uses: ./.github/workflows/reusablewf.yml
 
         with:
