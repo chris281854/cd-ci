@@ -38,7 +38,7 @@ jobs:
       - name: Container in log
         uses: docker://node:18.16-alpine3.17
         with:
-          entrypont: /usr/local/bin/node
+     
           args: -v
 
       - name: Show file contents
