@@ -19,6 +19,9 @@ jobs:
             access-token: ${{ secrets.ACCESS_TOKEN }}
 
     calling-a-reusable-wf-local:
+        permissions:
+            issues: write
+           
         uses: ./.github/workflows/reusable-wf-op.yml
         secrets: inherit
        
