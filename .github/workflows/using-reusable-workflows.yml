@@ -11,8 +11,10 @@ on:
 
 jobs:
     calling-a-reusable-wf:
-        uses:  chris281854/pruebacdci/.github/workflows/reusablewf.yml@main
+        uses: chris281854/pruebacdci/.github/workflows/reusablewf.yml@main
+
         with:
             name: ${{ github.event.inputs.name }}
         secrets:
-            acces-token: ${{ secrets.ACCES }}
+            access-token: ${{ secrets.ACCESS_TOKEN }}
+      
