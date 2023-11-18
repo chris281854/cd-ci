@@ -11,7 +11,7 @@ on:
 
 jobs:
     calling-a-reusable-wf:
-        uses: ./.github/workflows/reusablewf.yml@main
+        uses: ./.github/workflows/reusablewf.yml
 
         with:
             name: ${{ github.event.inputs.name }}
