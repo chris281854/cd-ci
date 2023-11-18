@@ -1,0 +1,25 @@
+{
+  "name": "firstworkflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris281854/cd-ci.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris281854/cd-ci/issues"
+  },
+  "homepage": "https://github.com/chris281854/cd-ci#readme",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "loadsh": "^0.0.4",
+    "momnet": "^2.29.1"
+  }
+}
