@@ -1,0 +1,29 @@
+name: Reusable Workflow LOcal
+on: 
+    workflow_call:
+        inputs:
+            name: 
+                description: 'input description'
+                required: true
+                default: 'Chris'
+                type: string
+        secrets:
+            access-token:
+                description: 'secret description'
+                required: true
+
+jobs:
+    checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: ls -a
+    log-context-and-inputs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display Github context
+              run: echo '${{toJSON(github)}}'
+            - name: Display inputs
+              run: echo ${{inputs.name}}
+            - name: Display secrets
+              run: echo ${{secrets.access-token}}
