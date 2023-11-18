@@ -7,9 +7,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Step 1
-              run: sleep 20
+              run: sleep 90
+              # time out minutes just in case that a workflow takes more than the timeout time it will fail
+              timeout-minutes: 1
             - name: Step 2
               id: step2
+              # continue a workfow when it shows an error if you don't care of the resolts
               continue-on-error: true
               run: exit 1
             - name: Runs on step 2 failure
