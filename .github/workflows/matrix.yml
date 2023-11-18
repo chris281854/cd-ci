@@ -11,11 +11,11 @@ jobs:
         strategy:
             matrix:
                 node-version: [12, 14,16]
-                os: [ubuntu-latest, windows-latest]
+                os: [ubuntu-latest, windows-latest,macs-latest]
                 include:
                     - os: ubuntu-latest
                       is-ubuntu: true
-                    - os: macs-latest
+                    - os: windows-latest
                       node-version: 15
                     - experimental: false
                     - os: ubuntu-latest
@@ -25,8 +25,8 @@ jobs:
                       node-version: 17
                       experimental: true
                 exclude:
-                    - os: windows-latest
-                      node-version: 12
+                    - os: macs-latest
+                      
                     
             fail-fast: false
             max-parallel: 12
