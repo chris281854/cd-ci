@@ -47,3 +47,11 @@ jobs:
         with: 
           entrypoint: ./script.sh
           args: "Some String"
+
+      - name: Send a slack message
+        uses: docker://technosophos/slack-notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          SLACK_TITLE: "Docker Action"
+          SLACK_MESSAGE: "Actor: ${{ github.actor }}\nRepo: ${{ github.repository }}\nRef: ${{ github.ref }}\nSHA: ${{ github.sha }}\nEvent: ${{ github.event_name }}\nWorkflow: ${{ github.workflow }}\nAction: ${{ github.action }}"
+          SLACK_COLOR: "#723fc4"
