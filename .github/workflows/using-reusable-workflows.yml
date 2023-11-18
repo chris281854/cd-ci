@@ -1,0 +1,18 @@
+name: Calling REusable Workflows
+
+on:
+    workflow_dispatch:
+        inputs:
+            name: 
+                description: 'input description'
+                required: true
+                default: 'Chris'
+                type: string
+
+jobs:
+    calling-a-reusable-wf:
+        uses:  pruebacdci/.github/workflows/reusablewf.yml@main
+        with:
+            name: ${{ github.event.inputs.name }}
+        secrets:
+            acces-token: ${{ secrets.ACCESS_TOKEN }}
