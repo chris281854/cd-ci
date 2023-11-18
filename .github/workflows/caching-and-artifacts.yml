@@ -32,8 +32,10 @@ jobs:
         runs-on: ubuntu-latest
         needs: [use-axions, Testing]
         steps:
+          - run: mkdir code-coverage-report
           - name: Downloading test results
             uses: actions/download-artifact@v3
+        
             with:
                 name: code-coverage
                 path: code-coverage-report
