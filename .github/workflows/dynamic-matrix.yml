@@ -1,41 +1,41 @@
 name: Matrix 
 
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      node-version:
+        description: 'Node Version'
+        required: true
+        default: "14,15,16,17,18"
+        type: string
+      os:
+        description: 'Operating System'
+        required: true
+        default: "windows-latest,ubuntu-latest"
+        type: string
 
 jobs: 
-    node-matrix:
-        # if one job fails the other will continue normally
-        # it makes the work flow continues even though one fails and if that happends the others jobs will be cancelled
-        continue-on-error: ${{ matrix.experimental == true }}
-         
+  prepared-matrix:
+     runs-on: ubuntu-latest
+     steps:
+      - run: echo "step-output=value" >> $GITHUB_OUTPUT
+        id: step1
+      - run: echo "step-output=value2" >> $GITHUB_OUTPUT
+        id: step2
+      - run: |
+          echo '${{ steps.step1.outputs.step-output }}'
+          echo '${{ steps.step2.outputs.step-output }}'
+
+  node-matrix:
         strategy:
             matrix:
                 node-version: [12, 14,16]
-                os: [ubuntu-latest, windows-latest,macs-latest]
-                include:
-                    - os: ubuntu-latest
-                      is-ubuntu: true
-                    - os: windows-latest
-                      node-version: 15
-                    - experimental: false
-                    - os: ubuntu-latest
-                      node-version: 16
-                      experimental: true
-                    - os: ubuntu-latest
-                      node-version: 17
-                      experimental: true
-                exclude:
-                    - os: macs-latest
-                      
-                    
-            fail-fast: true
-            max-parallel: 12
+                os: [ubuntu-latest, windows-latest]
+                       
         runs-on: ${{ matrix.os }}
         steps:
-            - if: matrix.experimental == true
-              run: exit 1
+       
             - run: node -v
-            - run: echo '${{toJson(matrix)}}'
             - uses: actions/setup-node@v3
               with:
                node-version: ${{ matrix.node-version}}
