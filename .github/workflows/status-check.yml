@@ -5,11 +5,14 @@ on: [push]
 jobs:
     job-1:
         runs-on: ubuntu-latest
+        # it can be use at the job level, if a job takes more than the timeout minutes the whole job will fail or it will be cancell
+        timeout-minutes: 360
         steps:
             - name: Step 1
               run: sleep 90
               # time out minutes just in case that a workflow takes more than the timeout time it will fail
-              timeout-minutes: 1
+              # on the step level it will cause that the whole step fail
+              timeout-minutes: 360
             - name: Step 2
               id: step2
               # continue a workfow when it shows an error if you don't care of the resolts
