@@ -21,5 +21,8 @@
     "axios": "^1.6.2",
     "loadsh": "^0.0.4",
     "momnet": "^2.29.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
