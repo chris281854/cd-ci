@@ -1,4 +1,4 @@
-name: Cachung and Artifacts
+name: Caching and Artifacts
 on: [workflow_dispatch]
 
 jobs: 
@@ -13,5 +13,5 @@ jobs:
             with:
                 script: |
                  const anxios = require('axios');
-                 const res = await anxios.get('https://icanhazdadjoke.com/' { headers: { Accept: 'text/plain' } })
+                 const res = await anxios.get('https://icanhazdadjoke.com/', { headers: { Accept: 'text/plain' } })
                  console.log(res.data)
