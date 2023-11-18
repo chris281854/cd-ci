@@ -21,9 +21,9 @@ jobs:
         steps:
             - name: Log node & OS version
               run: |
-                    echo "Node version: $(node -v)"
-                    cat /etc/os-realease
-            - uses: actions/checkout@v2
+                 echo "Node version: $(node -v)"
+                 cat /etc/os-realease
+        
             - name: Log env
               run: echo $API_URL
    
