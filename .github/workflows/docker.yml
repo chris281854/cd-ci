@@ -19,10 +19,9 @@ jobs:
          #       - path/in/host: /path/in/container
          #    options: --cpus 1 --memory 1G
         steps:
-            - name: LOg node & OS version
+            - name: Log node & OS version
               run: |
                     echo "Node version: $(node -v)"
-                    echo "OS version: $(uname -a)"
                     cat /etc/os-realease
             - uses: actions/checkout@v2
             - name: Log env
