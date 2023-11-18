@@ -1,4 +1,4 @@
-name: Matrix 
+name: Dynamic matrixs
 
 on: 
   workflow_dispatch:
@@ -46,19 +46,4 @@ jobs:
 
 
 
-#---------- comments ----------------#
-
-
-# by default if one job of the matrix fail the other that are pending will fail, to modify that we use this that if one job fails, the others will continue normally t
-# the default value is true
-#also fail-fast will prevent that if one job fail the others jobs of beeing cancelled
-# fail-fast: false
-# it limits the number of parallel jobs
-#  max-parallel: 12
-# is for adding aditional jobs to the matrix, if one off this 
-#parameters don't override the matrix, it will be added to the matrix
-# other wise it will override or merge to the elements that already are on the matrix
-# if i include ubuntu-18.04 it will be added to the matrix
-#includes:
-   # - os: ubuntu-latest
-   #   is-ubuntu: true 
+ 
