@@ -6,7 +6,7 @@ jobs:
     node-matrix:
         # if one job fails the other will continue normally
         # it makes the work flow continues even though one fails and if that happends the others jobs will be cancelled
-        continue-on-error: true
+        continue-on-error: false
          
         strategy:
             matrix:
@@ -28,10 +28,12 @@ jobs:
                     - os: macs-latest
                       
                     
-            fail-fast: false
+            fail-fast: true
             max-parallel: 12
         runs-on: ${{ matrix.os }}
         steps:
+            - if: matrix.experimental == true
+              run: exit 1
             - run: node -v
             - run: echo '${{toJson(matrix)}}'
             - uses: actions/setup-node@v3
