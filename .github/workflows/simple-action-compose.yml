@@ -7,14 +7,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: check repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
             - name: Send a Joke on Slack
               uses: ./.github/actions/slack-joke
               id: slack-joke
               with:
                 slack_username: chrisabreu281854
                 upload_joke: true
-                slack_webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+                slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
             - name: Displaying joke output 
               run: echo '${{ steps.send-joke.outputs.joke}}'
          
