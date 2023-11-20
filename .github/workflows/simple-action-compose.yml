@@ -14,7 +14,7 @@ jobs:
               with:
                 slack_username: chrisabreu281854
                 upload_joke: true
-                slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+                slack_webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
             - name: Displaying joke output 
               run: echo '${{ steps.send-joke.outputs.joke}}'
          
