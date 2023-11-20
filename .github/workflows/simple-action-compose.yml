@@ -6,10 +6,11 @@ jobs:
     simple-action:
         runs-on: ubuntu-latest
         steps:
-            - name: Simple JS action
+            - name: check repository
               uses: actions/checkout@v2
             - name: Send a Joke on Slack
               uses: ./.github/actions/slack-joke
+              id: slack-joke
               with:
                 slack_username: chrisabreu281854
                 upload_joke: true
