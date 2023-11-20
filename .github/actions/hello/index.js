@@ -10,7 +10,7 @@ core.error('Error message');
 
 const name = core.getInput('who_to_greet');
 
-consolog.log(`Hello ${name}!`);
+console.log(`Hello ${name}!`);
 const time = new Date();
 core.setOutput("time", time.toString);
 core.exportVariable("Hello_Time", time.toString);
