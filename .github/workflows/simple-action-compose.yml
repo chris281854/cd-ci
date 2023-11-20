@@ -12,7 +12,7 @@ jobs:
               uses: ./.github/actions/slack-joke
               id: slack-joke
               with:
-                slack_username: chrisabreu281854
+                slack_username: 'Christopher Jimenez'
                 upload_joke: true
                 slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
             - name: Displaying joke output 
