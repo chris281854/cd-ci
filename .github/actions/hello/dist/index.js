@@ -30369,8 +30369,8 @@ const name = core.getInput('who_to_greet');
 
 console.log(`Hello ${name}!`);
 const time = new Date();
-core.setOutput("time", time.toString);
-core.exportVariable("Hello_Time", time.toString);
+core.setOutput("time", time.toString());
+core.exportVariable("HELLO_TIME", time);
 core.startGroup("Logging context");
 console.log(JSON.stringify(github.context,null,2));
 core.endGroup();
