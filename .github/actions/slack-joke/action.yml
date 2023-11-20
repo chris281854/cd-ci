@@ -1,0 +1,56 @@
+name: Random Joke
+author: Chris Abreu
+description: Send a random joke to Slack
+inputs:
+  slack_username:
+    description: 'Slack username'
+    required: true
+  upload_joke:
+    description: 'Upload joke to Slack'
+  
+   
+  slack_webhook:
+    description: 'Slack webhook'
+outputs:
+    joke:
+      description: 'Random joke'
+      value: ${{ steps.joke.outputs.RANDOM_JOKE }}
+runs:
+  using: composite
+  steps: 
+    - name: Generate Joke
+      shell: bash
+      id: joke
+      run: |
+       DELIMITER=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "RANDOM_JOKE<<$DELIMITER" >> "$GITHUB_ENV"
+          echo "Here is a joke: " >> "$GITHUB_ENV"
+          curl -s https://icanhazdadjoke.com/ >> "$GITHUB_ENV"
+          echo "" >> "$GITHUB_ENV"
+          echo "$DELIMITER" >> "$GITHUB_ENV"
+    - name: Generate Joke file
+      shell: bash
+      run: echo '${{steps.joke.outputs.RANDOM_JOKE}}' > joke.txt
+      if: inputs.upload_joke == 'true'
+    - name: Upload Joke
+      if: inputs.upload_joke == 'true'
+      uses: actions/upload-atifact@v3
+      with:
+        name: joke
+        path: joke.txt
+    - name: Send a slack message
+      uses: docker://technosophos/slack-notify
+      env:
+        SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
+        SLACK_TITLE: "Random joke"
+        SLACK_MESSAGE:  |
+         "${{ inputs.slack_username && format('{0}','{1}','{2}','@',inputs.slack_username,
+         steps.joke.outputs.RANDOM_JOKE) || steps.joke.outputs.RANDOM_JOKE}}\n
+         Actor: ${{ github.actor }}\n
+         Repo: ${{ github.repository }}\n
+         
+         Event: ${{ github.event_name }}\
+         nWorkflow: ${{ github.workflow }}\n
+         Action: ${{ github.action }}"
+
+        SLACK_COLOR: "#723fc4"
