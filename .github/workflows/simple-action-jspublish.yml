@@ -1,4 +1,4 @@
-name: Simple action
+name: Simple action create with JS
 
 on: [push]
 
