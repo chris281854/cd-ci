@@ -1,0 +1,20 @@
+name: Calling Reusable Workflows local
+
+on:
+    workflow_dispatch:
+        inputs:
+            name: 
+                description: 'input description'
+                required: true
+                default: 'Chris'
+                type: string
+
+jobs:
+    calling-a-reusable-wf-local:
+        uses: ./.github/workflows/reusablewf.yml
+
+        with:
+            name: ${{ github.event.inputs.name }}
+        secrets:
+            access-token: ${{ secrets.ACCESS_TOKEN }}
+      

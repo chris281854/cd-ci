@@ -1,0 +1,40 @@
+name: External & Contexts
+
+on:
+    [push,pull_request,issues,workflow_dispatch]
+
+run-name: "Expresion & Contexts by ${{github.actor}}, event: ${{github.event_name}}"
+    
+
+jobs: 
+    runs-on-issues-and-prs:
+      runs-on: ubuntu-latest  
+      if: contains(fromJson('["issues","pull_request"]'), github.event_name)
+      steps:
+      - name: RUn only  if issue has a log bug label 
+        if: contains(github.event.issue.labels.*.name, 'bug')
+        run: echo ${{ join(github.event.issue.labels.*.name,',')}}  
+    using-expressions-and-context:
+     runs-on: ubuntu-latest
+     if: github.event_name == 'push'
+     steps:
+      - name: Expression
+        id: expression
+        run: |
+          echo ${{1}}
+          echo ${{ 'this is a string'}}
+          echo ${{null}}
+          echo ${{true}}
+          echo ${{1>2}}
+          echo ${{'string' == 'String'}}
+          echo ${{true && false}}
+          echo ${{true || (false && true)}}
+      - name: DUmp COntext
+        run: |
+            echo '${{toJson(github)}}'
+            echo '${{toJson(job)}}'
+            echo '${{toJson(secrets)}}'
+            echo '${{toJson(steps)}}'
+            echo '${{toJson(runner)}}'
+             
+

@@ -1,7 +1,19 @@
 name: Reposity Events 
 
-on: [push, pull_request, issues]
+on: 
+    push:
+        branches: [ master,secondbranch ]
 
+    #   branches-ignore:
+    #    - develop
+# with path you can filter the path of trigger o 
+#limit them to an specifict type of document
+    # path: 'js/**'
+    pull_request:
+        types: [opened, assigned, reopened, synchronize]
+
+    issues:
+        types: [opened]   
 jobs:
     checkout_test:
         runs-on: ubuntu-latest

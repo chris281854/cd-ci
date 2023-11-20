@@ -1,0 +1,20 @@
+name: Simple action created with docker
+
+on: [push]
+
+jobs:
+    simple-action:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            
+            - name: Simple JS action
+              id: greet
+          #    uses: actions/hello-world-javascript-action@v1
+              uses: ./.github/actions/hello-docker
+              with:
+                who_to_greet: Chris
+            - name: Log Greeting time 
+              run: echo "The time was ${{ steps.greet.outputs.time }}"
+            - name: Log ENV Var
+              run: echo $Hello_Time

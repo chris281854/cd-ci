@@ -1,0 +1,14 @@
+name: Slack message with php
+author: Chris Abreu
+description: "Send a slack"
+inputs:
+  slack_username:
+    description: "Slack Username"
+  upload_joke:
+    description: "Upload Joke as an Artifact?"
+  slack_webhook:
+    description: "Slack Webhook"
+outputs:
+  joke:
+    description: The generated joke
+    value: ${{ steps.joke.outputs.random_joke }}

@@ -1,0 +1,16 @@
+name: Simple action PHP
+
+on: [push]
+
+jobs:
+    simple-action-php:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Simple JS action
+              uses: actions/checkout@v2
+            - name: send a slack message
+              uses: ./.github/actions/slack-php
+              with:
+                  slack-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+                  slack-message: "Hello Slack PHP from GitHub Actions"
+ 
